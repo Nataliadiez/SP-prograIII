@@ -1,0 +1,17 @@
+<div>
+    <%- include("header") %>
+    <h1>Listado de logs</h1>
+    <div>
+        <% if (todos.length > 0) { %>
+            <% todos.forEach(elemento => { %>
+                <div>
+                    <p class="card-text">Ruta: <%= elemento.ruta %></p>
+                    <p class="card-text">Método: <%= elemento.metodo %></p>
+                </div>
+                <hr>
+            <% }); %>
+        <% } else { %>
+            <p>No hay logs</p>
+        <% } %>
+    </div>
+</div>

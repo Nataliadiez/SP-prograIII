@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Estaciones</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+</head>
+<body>
+    <%- include("header") %>
+    <section>
+        <h1 id="titulo">Listado de obras</h1>
+        <% if (todos.length > 0) { %>
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+                <% todos.forEach(elemento => {%>
+                    <div class="card" style="width: 18rem;">
+                        <img src="/public/obras/<%= elemento.imagen %>"
+                            class="card-img-top" 
+                            alt="Imagen de <%= elemento.nombre %>">
+                        <div class="card-body">
+                            <h5 class="card-title">Nombre: <%= elemento.nombre %></h5>
+                            <p class="card-text">Año de creación: <%= elemento.anioDeCreacion %></p>
+                            <p class="card-text">Id: <%= elemento.id %></p>
+                            <p class="card-text">Tipo: <%= elemento.tipo %></p>
+                            <p class="card-text">Estado: <%= elemento.activo ? "Activo" : "Inactivo" %></p>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>No hay obras disponibles para mostrar.</p>
+        <% } %>
+    </section>
+</body>
+</html>
